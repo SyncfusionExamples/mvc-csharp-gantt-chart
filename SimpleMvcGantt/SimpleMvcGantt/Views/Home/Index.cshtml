@@ -1,0 +1,11 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<div>
+   @Html.EJS().Gantt("Gantt").TaskFields(ts =>
+ts.Id("Id").Name("Name").StartDate("StartDate").EndDate("EndDate").Duration("Duration")
+.Progress("PercentDone").Child("Children").Dependency("Predecessor")).EditSettings(es =>
+es.AllowAdding(true).AllowEditing(true).AllowDeleting(true).AllowTaskbarEditing(true)
+.ShowDeleteConfirmDialog(true)).Toolbar(new List<string>() { "Add", "Edit", "Update", "Delete", "Cancel", "ExpandAll", "CollapseAll" }).AllowSelection(true).DataSource(ViewBag.datasource).Render()
+</div>
